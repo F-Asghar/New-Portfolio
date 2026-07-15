@@ -1,0 +1,125 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+section {
+  width: 100%;
+  height: auto;
+  max-width: 1440px;
+
+  > div {
+    width: 100%;
+    height: 30dvh;
+    @include all.flexi($jc: flex-end);
+  }
+
+  > section {
+    width: 100%;
+    height: fit-content;
+    margin-top: 80px;
+    border: 4px solid black;
+    position: relative;
+    flex-wrap: wrap;
+    padding-top: clamp(30px, 4vw, 80px);
+    @include all.flexi($jc: space-around);
+
+    #my-skills-headline {
+      height: fit-content;
+      width: clamp(250px, 60dvw, 800px);
+      position: absolute;
+      top: -75px;
+      background-color: #fffcf3;
+      @include all.flexi($jc: center);
+    }
+
+    .skill-icon {
+      width: clamp(85px, 9vw, 120px);
+      height: fit-content;
+      @include all.flexi($ai: center, $fd: column, $jc: center);
+      text-align: center;
+      margin: clamp(8px, 4vw, 80px);
+      perspective: 600px;
+
+      &:hover {
+        color: all.$green;
+      }
+
+      > img {
+        width: clamp(30px, 8vw, 100px);
+        height: clamp(30px, 8vw, 100px);
+      }
+
+      > p {
+        z-index: 10;
+        margin-top: 16px;
+        font-weight: bold;
+        font-size: clamp(16px, 2.2vw, 24px);
+      }
+    }
+
+    #education {
+      width: 100%;
+      height: 15dvh;
+      @include all.flexi($jc: center, $gap: 16px);
+      font-weight: bold;
+      padding: 0px 16px;
+
+      p {
+        font-size: clamp(16px, 2.2vw, 24px);
+      }
+
+      #education-wraper {
+        @include all.flexi($jc: center, $ai: center);
+        perspective: 600px;
+        overflow: hidden;
+        width: clamp(80px, 8vw, 100px);
+
+        > img {
+          width: clamp(40px, 8vw, 100px);
+          height: clamp(40px, 8vw, 100px);
+        }
+      }
+
+      #contact-me {
+        font-weight: lighter;
+        color: all.$green;
+        font-size: clamp(16px, 2.2vw, 24px);
+
+        &:hover {
+          filter: brightness(1);
+          text-shadow: 0 0 0.8px currentColor;
+        }
+      }
+    }
+  }
+}
+
+//#region Mediaquerries
+
+@include all.notebook {
+  section > section {
+    #my-skills-headline {
+      top: -60px;
+    }
+  }
+
+  section > section {
+    justify-content: center;
+  }
+}
+
+@include all.tablet {
+  section > section {
+    #my-skills-headline {
+      top: -40px;
+    }
+  }
+}
+
+@include all.mobile {
+  section > section {
+    #my-skills-headline {
+      top: -25px;
+    }
+  }
+}
+
+//#endregion

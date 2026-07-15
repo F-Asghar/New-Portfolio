@@ -1,0 +1,148 @@
+<div id="arrow-wrapper">
+  <div id="arrow">
+    <a href="#say-hi">
+      <img class="moveToLeft" src="assets/icons/arrow-down-left.png" alt="" />
+    </a>
+  </div>
+</div>
+<main class="structure">
+  <section class="padding">
+    <div id="say-hi-wraper">
+      <a href="#above-the-fold">
+        <img class="arrow-up" src="assets/icons/arrow-up.png" alt="" />
+      </a>
+      <div id="headline">
+        <h2 id="say-hi">{{ 'say-hi.headline' | translate }}</h2>
+      </div>
+
+      <div id="input-area">
+        <div id="subline">
+          <h3>{{ 'say-hi.subheadline-one' | translate }}</h3>
+          <p>{{ 'say-hi.subheadline-two' | translate }}</p>
+        </div>
+
+        <form [formGroup]="userForm" (ngSubmit)="formSubmit()" class="form-container">
+          <div>
+            <div class="input-wrapper">
+              @if (userForm.get('name')?.valid && userForm.get('name')?.touched) {
+                <img class="validation-icon" src="assets/icons/valid.png" alt="valid" />
+              } @else if (userForm.get('name')?.invalid && userForm.get('name')?.touched) {
+                <img class="validation-icon" src="assets/icons/invalid.png" alt="invalid" />
+              }
+              <input
+                formControlName="name"
+                name="name"
+                id="name"
+                class="input"
+                type="text"
+                placeholder="{{ 'say-hi.your-name' | translate }}"
+              />
+              <label for="name" class="label">{{ 'say-hi.your-name' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('name')?.valid && userForm.get('name')?.touched"
+            >
+              {{ 'say-hi.name-required' | translate }}
+            </p>
+          </div>
+
+          <div>
+            <div class="input-wrapper">
+              @if (userForm.get('email')?.valid && userForm.get('email')?.touched) {
+                <img class="validation-icon" src="assets/icons/valid.png" alt="valid" />
+              } @else if (userForm.get('email')?.invalid && userForm.get('email')?.touched) {
+                <img class="validation-icon" src="assets/icons/invalid.png" alt="invalid" />
+              }
+              <input
+                formControlName="email"
+                name="email"
+                id="email"
+                class="input"
+                type="email"
+                placeholder="{{ 'say-hi.your-email' | translate }}"
+              />
+              <label for="email" class="label">{{ 'say-hi.your-email' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('email')?.valid && userForm.get('email')?.touched"
+            >
+              {{ 'say-hi.email-required' | translate }}
+            </p>
+          </div>
+
+          <div>
+            <div class="input-wrapper">
+              @if (userForm.get('message')?.valid && userForm.get('message')?.touched) {
+                <img
+                  class="validation-icon validation-icon--text"
+                  src="assets/icons/valid.png"
+                  alt="valid"
+                />
+              } @else if (userForm.get('message')?.invalid && userForm.get('message')?.touched) {
+                <img
+                  class="validation-icon validation-icon--text"
+                  src="assets/icons/invalid.png"
+                  alt="invalid"
+                />
+              }
+              <textarea
+                formControlName="message"
+                minlength="4"
+                name="message"
+                id="message"
+                class="textarea"
+                placeholder="{{ 'say-hi.your-message' | translate }}"
+              ></textarea>
+              <label for="message" class="label">{{ 'say-hi.your-message' | translate }}</label>
+            </div>
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('message')?.valid && userForm.get('message')?.touched"
+            >
+              {{ 'say-hi.message-required' | translate }}
+            </p>
+          </div>
+
+          <div id="check-box">
+            <input
+              formControlName="privacyPolicy"
+              name="privacyPolicy"
+              id="privacyPolicy"
+              type="checkbox"
+            />
+            <div>
+              <p>
+                {{ 'say-hi.privacy-policy-one' | translate }}
+                <a (click)="goToPrivacyPolicy()" routerLink="privacy-policy">{{
+                  'say-hi.privacy-policy-two' | translate
+                }}</a>
+                {{ 'say-hi.privacy-policy-three' | translate }}
+              </p>
+
+            <p
+              class="error-message"
+              [class.invalid]="!userForm.get('privacyPolicy')?.valid && userForm.get('privacyPolicy')?.touched"
+            >
+              {{ 'say-hi.privacy-policy-required' | translate }}
+            </p>
+            </div>
+          </div>
+          <div id="button-wrapper" (click)="handleDisabledClick()">
+            <input
+              class="button-one"
+              type="submit"
+              value="{{ 'say-hi.send-button' | translate }}"
+              [class.is-valid]="userForm.valid"
+            />
+          </div>
+        </form>
+
+        @if (successMessage) {
+          <div class="success-box">✔ {{ 'say-hi.valid' | translate }}</div>
+        }
+      </div>
+    </div>
+  </section>
+</main>

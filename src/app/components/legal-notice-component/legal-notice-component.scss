@@ -1,0 +1,31 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+
+#impressum {
+  width: 100%;
+  max-width: 1440px; 
+  flex-grow: 1;
+  min-height: 63.2dvh;
+  margin-bottom: 24px;
+
+  h2 {
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  a {
+    color: all.$green;
+  }
+
+  .slide-underline {
+    font-size: 20px;
+    font-weight: lighter;
+
+    &:hover {
+      filter: brightness(1);
+      text-shadow: 0 0 0.8px currentColor;
+    }
+  }
+}

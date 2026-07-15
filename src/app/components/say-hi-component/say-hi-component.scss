@@ -1,0 +1,222 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+.structure {
+  background-color: black;
+}
+
+#arrow-wrapper {
+  @include all.flexi($jc: center);
+  padding-bottom: 40px;
+  background: linear-gradient(184deg, transparent 0%, transparent 75%, black 50%, black 100%);
+}
+
+#arrow {
+  width: 100%;
+  height: 420px;
+  max-width: 1440px;
+  @include all.flexi($jc: flex-end, $ai: center);
+
+  > img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+section {
+  width: 100%;
+  height: fit-content;
+  color: white;
+  background-color: black;
+  max-width: 1440px;
+
+  #headline {
+    width: 100%;
+    @include all.flexi($jc: flex-start);
+  }
+
+  h3 {
+    color: all.$green;
+    margin: 24px 0px;
+  }
+
+  a {
+    color: all.$green;
+    text-decoration: none;
+
+    &:hover {
+      filter: brightness(1.2);
+      text-shadow: 0 0 0.5px currentColor;
+    }
+  }
+
+  #say-hi-wraper {
+    width: 100%;
+    @include all.flexi($fd: column);
+
+    > a {
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      bottom: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    #input-area {
+      width: 100%;
+      @include all.flexi($fd: column);
+
+      .success-box {
+        position: fixed;
+        top: 5%;
+        padding: 12px 20px;
+        background-color: white;
+        color: all.$green;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        font-weight: 500;
+        font-size: 20px;
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(-10px);
+        animation: fadeInOut 4s forwards;
+      }
+
+      #subline {
+        text-align: center;
+        padding-bottom: 48px;
+      }
+
+      .validation-icon {
+        position: absolute;
+        background-color: transparent;
+        right: 0;
+        top: 50%;
+        z-index: 10;
+        transform: translate(-50%, -50%);
+
+        &--text {
+          top: 10%;
+        }
+      }
+
+      .form-container {
+        width: clamp(280px, 100%, 600px);
+        height: fit-content;
+        padding-bottom: 16px;
+        @include all.flexi($fd: column, $gap: 16px);
+
+        > div {
+          width: 100%;
+        }
+
+        .error-message {
+          margin-top: 2px;
+          font-size: 14px;
+          color: transparent;
+          pointer-events: none;
+          &.invalid {
+            color: red;
+          }
+        }
+      }
+
+      .textarea {
+        width: 100%;
+        height: 240px;
+        border: none;
+        border-bottom: 2px solid white;
+        padding: 16px;
+
+        &:hover {
+          border: 2px solid white;
+          cursor: pointer;
+        }
+
+        &:focus {
+          border: 2px solid white;
+          outline: none;
+          background-color: black;
+
+          & + .label {
+            display: block;
+          }
+        }
+      }
+
+      .input-wrapper {
+        margin-top: 24px;
+      }
+
+      .input {
+        width: 100%;
+        height: 36px;
+        border: none;
+        border: 2px solid transparent;
+        border-bottom: 2px solid white;
+        padding: 20px;
+        padding-right: 50px;
+
+        &:-webkit-autofill {
+          transition:
+            background-color 600000s ease-in-out 0s,
+            color 600000s ease-in-out 0s;
+        }
+
+        &:hover {
+          border: 2px solid white;
+          cursor: pointer;
+        }
+
+        &:focus {
+          border: 2px solid white;
+          outline: none;
+          & + .label {
+            display: block;
+          }
+        }
+      }
+
+      .label {
+        display: none;
+        position: absolute;
+        width: fit-content;
+        height: 16px;
+        color: white;
+        top: -8px;
+        left: 16px;
+        font-size: 16px;
+        z-index: 10;
+      }
+
+      #button-wrapper {
+        @include all.flexi();
+        margin-top: 24px;
+      }
+
+      #check-box {
+        width: 100%;
+        @include all.flexi($ai: center, $gap: 16px);
+
+        input {
+          align-self: start;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+//#region Mediaquerries
+
+@include all.tablet {
+  #say-hi-wraper > a {
+    display: none;
+  }
+}
+
+//#endregion

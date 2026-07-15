@@ -1,0 +1,23 @@
+@use './../public/assets/styles/all-styles.scss' as all;
+
+* {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  background-color: inherit;
+}
+
+#body {
+  background-image: radial-gradient(circle at 1px 1px, #e9ddcb 2px, #fffcf3 1px);
+  background-size: clamp(80px, 10vw, 150px) clamp(80px, 10vw, 150px);
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+}

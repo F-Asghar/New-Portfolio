@@ -1,0 +1,90 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+
+section {
+  width: 100%;
+  @include all.flexi($fd: column);
+  max-width: 1440px;
+  min-height: 85dvh;
+  text-align: center;
+
+  #head-line {
+    width: 100%;
+    text-align: center;
+  }
+
+  #name {
+    @include all.flexi($ai: center, $gap: 16px);
+    margin-bottom: clamp(0px, 5vmin, 60px);
+    #underline {
+      width: clamp(25px, 40.5vmin, 700px);
+      height: 3px;
+    }
+
+    > h3 {
+      font-size: clamp(24px, 6vmin, 48px);
+      color: all.$green;
+    }
+  }
+
+  #mail-scroll {
+    width: 100%;
+    height: auto;
+    padding: 48px 0px;
+    @include all.flexi($ai: center, $jc: space-between);
+
+    #arrow {
+      overflow: hidden;
+    }
+
+    #mail {
+      width: 100px;
+      height: 100%;
+      text-wrap: nowrap;
+      @include all.flexi();
+
+      > a {
+        position: absolute;
+        right: -8px;
+        display: inline-block;
+        transform: rotate(-90deg);
+      }
+    }
+
+    > div {
+      font-size: 20px;
+      text-align: center;
+    }
+  }
+}
+
+// #region mediaquerrys
+
+@include all.notebook {
+    section #name > h3 {
+    font-size: 36px;
+  }
+}
+
+@include all.tablet {
+  h1 {
+    padding-top: 48px;
+  }
+
+   section #name > h3 {
+    font-size: 28px;
+  }
+}
+
+@include all.mobile {
+
+  section #head-line{
+    width: 100%;
+  }
+
+  section #name > h3 {
+    font-size: 18px;
+  }
+}
+
+// #endregion

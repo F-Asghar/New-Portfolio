@@ -1,0 +1,45 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+
+section {
+  width: 100%;
+  height: fit-content;
+  padding-left: clamp(12px, 5%, 48px);
+  padding-right: clamp(12px, 5%, 48px);
+}
+
+.slide-underline {
+  color: all.$green;
+  font-size: 20px;
+  margin-bottom: 24px;
+
+  &:hover {
+    filter: brightness(1);
+    text-shadow: 0 0 0.8px currentColor;
+  }
+}
+
+h2 {
+  font-size: clamp(38px, 8dvw, 90px);
+  padding-bottom: 16px;
+  overflow-wrap: break-word;
+}
+
+h3 {
+  font-size: clamp(24px, 5dvw, 100px);
+  padding-bottom: 16px;
+}
+
+h4 {
+  font-size: clamp(22px, 3dvw, 24px);
+  padding-bottom: 16px;
+}
+
+h5 {
+  font-size: clamp(18px, 2.5dvw, 24px);
+  padding-bottom: 16px;
+}
+
+p {
+  padding-bottom: 24px;
+}

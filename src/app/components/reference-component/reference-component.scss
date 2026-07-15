@@ -1,0 +1,62 @@
+@use '../../../../public/assets/styles/all-styles.scss' as all;
+
+section {
+  width: 100%;
+  height: fit-content;
+  max-width: 1440px;
+  text-align: center;
+  overflow-wrap: break-word;
+  @include all.flexi($ai: center, $fd: column);
+
+  #headline {
+    width: 80%;
+    margin-bottom: 24px;
+
+    > h2 {
+      margin-bottom: 36px;
+    }
+  }
+
+  #reference-wrapper {
+    width: 100%;
+  }
+
+  #references {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .reference {
+    min-height: 380px;
+    border: 4px solid black;
+    margin-top: 24px;
+    padding: 32px 16px;
+
+    &:hover {
+      border-color: all.$green;
+
+      h3 {
+        color: all.$green;
+      }
+    }
+
+    > h3 {
+      font-size: 60px;
+    }
+
+    > h4 {
+      font-size: 24px;
+    }
+
+    > p {
+      margin-top: 24px;
+    }
+
+    > span {
+      color: black;
+    }
+  }
+}
+
