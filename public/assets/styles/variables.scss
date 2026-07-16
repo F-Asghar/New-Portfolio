@@ -1,5 +1,6 @@
 $green: #00bc8f;
 
+
 //#region Keyframes
 
 @keyframes moveToRight {
@@ -12,8 +13,8 @@ $green: #00bc8f;
 }
 
 .moveToRight {
-  animation-name: moveToRight; // Name der Animation /Keyframes
-  animation-duration: 3s; // Dauer der Animation
+  animation-name: moveToRight; 
+  animation-duration: 3s; 
   animation-iteration-count: infinite;
 }
 
@@ -27,8 +28,8 @@ $green: #00bc8f;
 }
 
 .moveToLeft {
-  animation-name: moveToLeft; // Name der Animation /Keyframes
-  animation-duration: 3s; // Dauer der Animation
+  animation-name: moveToLeft; 
+  animation-duration: 3s; 
   animation-iteration-count: infinite;
 }
 
@@ -262,25 +263,26 @@ $green: #00bc8f;
 //#endregion
 
 //#region Scrol-Id`s
-#above-the-fold {
-  scroll-margin-top: 120px;
-}
 
-#say-hi {
-  scroll-margin-top: 140px;
-}
+// #above-the-fold {
+//   scroll-margin-top: 120px;
+// }
 
-#my-skills {
-  scroll-margin-top: 130px;
-}
+// #say-hi {
+//   scroll-margin-top: 140px;
+// }
 
-#about-me {
-  scroll-margin-top: 130px;
-}
+// #my-skills {
+//   scroll-margin-top: 130px;
+// }
 
-#portfolio {
-  scroll-margin-top: -110px;
-}
+// #about-me {
+//   scroll-margin-top: 130px;
+// }
+
+// #portfolio {
+//   scroll-margin-top: -110px;
+// }
 
 .no-scroll {
   overflow: hidden;
