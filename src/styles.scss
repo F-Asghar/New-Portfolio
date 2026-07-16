@@ -19,20 +19,17 @@
   grid-template-rows: 250px 1fr 250px;
   width: 100%;
   min-height: 100dvh;
-  background-attachment: fixed;
-  background: radial-gradient(
-    circle at center,
-    #334155 0%,
-     #1e293b 25%,
-     #0f172a 60%,
-     #030712 100% 
-  );
-  background-size: 400% 400%;
-  animation: liquidGlow 15s ease-in-out infinite alternate;
+  @include all.liquid-background;
 }
 
 @keyframes liquidGlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 50% 100%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
 }

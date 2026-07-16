@@ -5,3 +5,16 @@
     align-items: $ai;
     gap: $gap;
 }
+
+@mixin liquid-background {
+  background: radial-gradient(
+    circle at center,
+    #334155 0%,
+    #1e293b 25%,
+    #0f172a 60%,
+    #030712 100% 
+  );
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: liquidGlow 15s ease-in-out infinite alternate;
+}

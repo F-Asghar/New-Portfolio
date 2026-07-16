@@ -1,6 +1,5 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
-
 section {
   width: 100%;
   @include all.flexi($fd: column);
@@ -16,14 +15,20 @@ section {
   #name {
     @include all.flexi($ai: center, $gap: 16px);
     margin-bottom: clamp(0px, 5vmin, 60px);
+    filter: brightness(1.5);
+    text-shadow:
+      0 0 5px rgba(124, 58, 237, 0.8),
+      0 0 10px rgba(124, 58, 237, 0.4);
+
     #underline {
       width: clamp(25px, 40.5vmin, 700px);
       height: 3px;
+      filter: invert(28%) sepia(83%) saturate(3914%) hue-rotate(314deg) brightness(100%) contrast(103%);
     }
 
     > h3 {
       font-size: clamp(24px, 6vmin, 48px);
-      color: all.$green;
+      color: all.$purple;
     }
   }
 
@@ -61,7 +66,7 @@ section {
 // #region mediaquerrys
 
 @include all.notebook {
-    section #name > h3 {
+  section #name > h3 {
     font-size: 36px;
   }
 }
@@ -71,14 +76,13 @@ section {
     padding-top: 48px;
   }
 
-   section #name > h3 {
+  section #name > h3 {
     font-size: 28px;
   }
 }
 
 @include all.mobile {
-
-  section #head-line{
+  section #head-line {
     width: 100%;
   }
 
