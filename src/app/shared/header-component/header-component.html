@@ -11,34 +11,26 @@
       </div>
 
       <section id="burger-menu">
-        <button
-          class="navBtn4"
-          commandFor="dialog-menu"
-          (click)="navClick()"
-        >
-          <div class="icon-container"></div>
+        <button class="navBtn4" commandFor="dialog-menu" (click)="navClick()">
+          <div id="icon-container"></div>
         </button>
       </section>
     </nav>
-
-    <!-- TESTAREA -->
 
     <dialog id="dialog-menu" [open]="isMenuOpen">
       <div id="dialog-content">
         <ul>
           <li>
-            <a  href="#about-me">{{ 'header.about-me' | translate }}</a>
+            <a href="#about-me">{{ 'header.about-me' | translate }}</a>
           </li>
           <li>
-            <a  href="#my-skills">{{ 'header.my-skills' | translate }}</a>
+            <a href="#my-skills">{{ 'header.my-skills' | translate }}</a>
           </li>
           <li>
-            <a  href="#portfolio">{{ 'header.portfolio' | translate }}</a>
+            <a href="#portfolio">{{ 'header.portfolio' | translate }}</a>
           </li>
         </ul>
       </div>
     </dialog>
-
   </div>
 </header>
-

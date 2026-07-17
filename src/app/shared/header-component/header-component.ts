@@ -21,9 +21,10 @@ export class HeaderComponent {
     this.currentLanguage = language;
   }
 
-  /**
-   * Toggles the state of the mobile navigation menu and coordinates
-   * the side effects like page scrolling and mobile language layout.
+/**
+   * Toggles the state of the mobile navigation menu and coordinates all related 
+   * side effects, including body scrolling, mobile language layout, and the 
+   * burger icon's frame-by-frame animation.
    * @public
    * @returns {void}
    */
@@ -31,6 +32,7 @@ export class HeaderComponent {
     this.isMenuOpen = !this.isMenuOpen;
     this.toggleBodyNoScroll();
     this.toggleMobileLanguage();
+    this.handleBurgerIcon();
   }
 
   /**
@@ -53,9 +55,28 @@ export class HeaderComponent {
    */
   private toggleMobileLanguage(): void {
     if (window.innerWidth > 640) return;
-    const languageDiv = document.getElementById('language');
+    const languageDiv = document.getElementById('language') as HTMLElement;
     if (languageDiv) {
       languageDiv.style.display = this.isMenuOpen ? 'flex' : 'none';
+    }
+  }
+
+  /**
+   * Manages the frame-by-frame burger menu animation by swapping between 
+   * 'open-animation' and 'close-animation' classes depending on the menu state.
+   * @private
+   * @returns {void}
+   */
+  private handleBurgerIcon(): void {
+    const iconRef = document.getElementById('icon-container') as HTMLElement;
+    if (!iconRef) return;
+
+    if (this.isMenuOpen) {
+      iconRef.classList.remove('close-animation');
+      iconRef.classList.add('open-animation');
+    } else {
+      iconRef.classList.remove('open-animation');
+      iconRef.classList.add('close-animation');
     }
   }
 }
