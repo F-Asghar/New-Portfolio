@@ -9,8 +9,12 @@ import { TranslatePipe, TranslateDirective, TranslateService } from '@ngx-transl
 })
 export class HeaderComponent {
   isMenuOpen = false;
-  currentLanguage: string = 'de';
+  currentLanguage: string = localStorage.getItem('currentLanguage') || 'de';
   private translate = inject(TranslateService);
+
+  constructor() {
+    this.translate.use(this.currentLanguage);
+  }
 
   /**
    * Switches the application's translation language and updates the current language state.
@@ -19,11 +23,12 @@ export class HeaderComponent {
   useLanguage(language: string): void {
     this.translate.use(language);
     this.currentLanguage = language;
+    localStorage.setItem('currentLanguage', language);
   }
 
-/**
-   * Toggles the state of the mobile navigation menu and coordinates all related 
-   * side effects, including body scrolling, mobile language layout, and the 
+  /**
+   * Toggles the state of the mobile navigation menu and coordinates all related
+   * side effects, including body scrolling, mobile language layout, and the
    * burger icon's frame-by-frame animation.
    * @public
    * @returns {void}
@@ -62,7 +67,7 @@ export class HeaderComponent {
   }
 
   /**
-   * Manages the frame-by-frame burger menu animation by swapping between 
+   * Manages the frame-by-frame burger menu animation by swapping between
    * 'open-animation' and 'close-animation' classes depending on the menu state.
    * @private
    * @returns {void}
