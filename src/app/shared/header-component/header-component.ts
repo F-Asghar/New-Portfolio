@@ -8,46 +8,9 @@ import { TranslatePipe, TranslateDirective, TranslateService } from '@ngx-transl
   styleUrl: './header-component.scss',
 })
 export class HeaderComponent {
-  isOpen = false;
+  isMenuOpen = false;
   currentLanguage: string = 'de';
   private translate = inject(TranslateService);
-
-  /**
-   * Toggles the menu state and updates the dialog visibility.
-   */
-  navClick(): void {
-    this.isOpen = !this.isOpen;
-    this.toggleDialog();
-  }
-
-  /**
-   * Manages the visibility of the menu dialog and handles associated UI adjustments
-   * such as body scrolling and language selector visibility.
-   */
-  toggleDialog() {
-    const dialogRef = document.getElementById('dialog-menu') as HTMLDialogElement;
-    const languageDiv = document.getElementById('language');
-    const bodyRef = document.getElementById('body');
-
-    if (dialogRef.open) {
-      dialogRef.close();
-      this.isOpen = false;
-      if (languageDiv) {
-        languageDiv.style.display = '';
-      }
-      if (bodyRef) {
-        bodyRef.style.overflow = '';
-      }
-    } else {
-      dialogRef.show();
-      if (bodyRef) {
-        bodyRef.style.overflow = 'hidden';
-      }
-      if (window.innerWidth <= 640 && languageDiv) {
-        languageDiv.style.display = 'flex';
-      }
-    }
-  }
 
   /**
    * Switches the application's translation language and updates the current language state.
@@ -56,5 +19,43 @@ export class HeaderComponent {
   useLanguage(language: string): void {
     this.translate.use(language);
     this.currentLanguage = language;
+  }
+
+  /**
+   * Toggles the state of the mobile navigation menu and coordinates
+   * the side effects like page scrolling and mobile language layout.
+   * @public
+   * @returns {void}
+   */
+  navClick(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+    this.toggleBodyNoScroll();
+    this.toggleMobileLanguage();
+  }
+
+  /**
+   * Prevents or restores window scrolling on the body element
+   * depending on whether the navigation menu is open.
+   * @private
+   * @returns {void}
+   */
+  private toggleBodyNoScroll(): void {
+    const bodyRef = document.getElementById('body') as HTMLBodyElement;
+    if (!bodyRef) return;
+    bodyRef.style.overflow = this.isMenuOpen ? 'hidden' : '';
+  }
+
+  /**
+   * Toggles the visibility of the language selection wrapper on mobile devices
+   * (viewports <= 640px) based on the menu's open state.
+   * @private
+   * @returns {void}
+   */
+  private toggleMobileLanguage(): void {
+    if (window.innerWidth > 640) return;
+    const languageDiv = document.getElementById('language');
+    if (languageDiv) {
+      languageDiv.style.display = this.isMenuOpen ? 'flex' : 'none';
+    }
   }
 }

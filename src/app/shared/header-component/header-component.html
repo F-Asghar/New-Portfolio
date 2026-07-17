@@ -13,8 +13,7 @@
       <section id="burger-menu">
         <button
           class="navBtn4"
-          [class.is-open]="isOpen"
-          [class.is-closed]="!isOpen"
+          commandFor="dialog-menu"
           (click)="navClick()"
         >
           <div class="icon-container"></div>
@@ -22,22 +21,24 @@
       </section>
     </nav>
 
-    <dialog id="dialog-menu">
+    <!-- TESTAREA -->
+
+    <dialog id="dialog-menu" [open]="isMenuOpen">
       <div id="dialog-content">
         <ul>
           <li>
-            <a (click)="toggleDialog()" href="#about-me">{{ 'header.about-me' | translate }}</a>
+            <a  href="#about-me">{{ 'header.about-me' | translate }}</a>
           </li>
           <li>
-            <a (click)="toggleDialog()" href="#my-skills">{{ 'header.my-skills' | translate }}</a>
+            <a  href="#my-skills">{{ 'header.my-skills' | translate }}</a>
           </li>
           <li>
-            <a (click)="toggleDialog()" href="#portfolio">{{ 'header.portfolio' | translate }}</a>
+            <a  href="#portfolio">{{ 'header.portfolio' | translate }}</a>
           </li>
         </ul>
       </div>
     </dialog>
+
   </div>
 </header>
-
 
