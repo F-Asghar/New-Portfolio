@@ -10,10 +10,12 @@ import { TranslatePipe, TranslateDirective, TranslateService } from '@ngx-transl
 export class HeaderComponent {
   isMenuOpen = false;
   currentLanguage: string = localStorage.getItem('currentLanguage') || 'de';
+  isLightMode: boolean = localStorage.getItem('isLightMode') === 'true';
   private translate = inject(TranslateService);
 
   constructor() {
     this.translate.use(this.currentLanguage);
+    this.updateBodyThemeClass();
   }
 
   /**
@@ -83,5 +85,25 @@ export class HeaderComponent {
       iconRef.classList.remove('open-animation');
       iconRef.classList.add('close-animation');
     }
+  }
+
+  /**
+   * Synchronizes the DOM body element's class list with the current theme state.
+   * @private
+   * @returns {void}
+   */
+  private updateBodyThemeClass(): void {
+    document.body.classList.toggle('light-theme-active', this.isLightMode);
+  }
+
+  /**
+   * Toggles between light mode and dark mode, stores the setting, and updates the body class.
+   * @public
+   * @returns {void}
+   */
+  toggleTheme(): void {
+    this.isLightMode = !this.isLightMode; 
+    localStorage.setItem('isLightMode', String(this.isLightMode)); 
+    this.updateBodyThemeClass(); 
   }
 }

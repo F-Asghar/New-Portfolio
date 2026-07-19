@@ -1,4 +1,4 @@
-<header class="structure">
+<header class="structure" [class.light-theme-active]="isLightMode">
   <div class="max-width">
     <nav id="nav-element" class="padding">
       <div id="logo">
@@ -21,13 +21,18 @@
       <div id="dialog-content">
         <ul>
           <li>
-            <a href="#about-me">{{ 'header.about-me' | translate }}</a>
+            <a href="#about-me" (click)="navClick()">{{ 'header.about-me' | translate }}</a>
           </li>
           <li>
-            <a href="#my-skills">{{ 'header.my-skills' | translate }}</a>
+            <a href="#my-skills" (click)="navClick()">{{ 'header.my-skills' | translate }}</a>
           </li>
           <li>
-            <a href="#portfolio">{{ 'header.portfolio' | translate }}</a>
+            <a href="#portfolio" (click)="navClick()">{{ 'header.portfolio' | translate }}</a>
+          </li>
+          <li>
+            <a href="" (click)="toggleTheme(); navClick(); $event.preventDefault()">
+              {{ isLightMode ? 'Darkmode' : 'Lightmode' }}
+            </a>
           </li>
         </ul>
       </div>

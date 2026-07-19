@@ -26,7 +26,6 @@ header {
 nav {
   width: 100%;
   height: 15dvh;
-  // min-height: 80px;
   font-weight: bold;
   @include all.flexi();
 
@@ -135,6 +134,11 @@ nav {
   background-color: rgba(15, 23, 42, 0.9);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(25px);
+  transition: background-color 500ms ease-in-out 3s;
+
+  :host-context(.light-theme-active) & {
+    background-color: rgba(245, 245, 245, 0.85); 
+  }
 
   > ul {
     width: 100%;

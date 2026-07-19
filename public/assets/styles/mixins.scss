@@ -1,20 +1,62 @@
-@mixin flexi($jc: center, $fd: row, $ai: center, $gap: 0){
-    display: flex;
-    justify-content: $jc;
-    flex-direction: $fd;
-    align-items: $ai;
-    gap: $gap;
+@mixin flexi($jc: center, $fd: row, $ai: center, $gap: 0) {
+  display: flex;
+  justify-content: $jc;
+  flex-direction: $fd;
+  align-items: $ai;
+  gap: $gap;
+}
+
+@property --bg-color-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #334155;
+}
+@property --bg-color-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #1e293b;
+}
+@property --bg-color-3 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #0f172a;
+}
+@property --bg-color-4 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #030712;
 }
 
 @mixin liquid-background {
   background: radial-gradient(
     circle at center,
-    #334155 0%,
-    #1e293b 25%,
-    #0f172a 60%,
-    #030712 100% 
+    var(--bg-color-1) 0%,
+    var(--bg-color-2) 25%,
+    var(--bg-color-3) 60%,
+    var(--bg-color-4) 100%
   );
   background-size: 400% 400%;
   background-attachment: fixed;
   animation: liquidGlow 15s ease-in-out infinite alternate;
+  transition:
+    --bg-color-1 3s ease-in-out,
+    --bg-color-2 3s ease-in-out,
+    --bg-color-3 3s ease-in-out,
+    --bg-color-4 3s ease-in-out;
+
+  &.light-theme-active {
+    --bg-color-1: #fafaf9; 
+    --bg-color-2: #f5f5f4; 
+    --bg-color-3: #e7e5e4; 
+    --bg-color-4: #d6d3d1; 
+  }
+}
+
+@keyframes switchToLightMode {
+  100% {
+    --bg-color-1: #fafaf9; 
+    --bg-color-2: #f5f5f4; 
+    --bg-color-3: #e7e5e4; 
+    --bg-color-4: #d6d3d1; 
+  }
 }
