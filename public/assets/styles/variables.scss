@@ -1,6 +1,5 @@
-// $green: #00bc8f;
-$purple: #FF2193;
-$green: #FF2193;
+
+$accent-color: #FF31DC;
 
 //#region Keyframes
 
@@ -199,7 +198,7 @@ $green: #FF2193;
     bottom: -2px;
     width: 35%;
     height: 2px;
-    background-color: #00b894;
+    background-color: $accent-color;
     opacity: 0;
   }
 
@@ -285,10 +284,6 @@ $green: #FF2193;
 //   scroll-margin-top: -110px;
 // }
 
-.no-scroll {
-  overflow: hidden;
-}
-
 //#endregion
 
 //#region font-size & hover
@@ -308,7 +303,7 @@ h2 {
   font-family: 'Syne Variable', sans-serif;
 
   &:hover {
-    color: $green;
+    color: $accent-color;
   }
 }
 

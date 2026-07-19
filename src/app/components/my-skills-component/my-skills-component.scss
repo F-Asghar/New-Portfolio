@@ -39,7 +39,7 @@ section {
       perspective: 600px;
 
       &:hover {
-        color: all.$green;
+        color: all.$accent-color;
       }
 
       > img {
@@ -80,7 +80,7 @@ section {
 
       #contact-me {
         font-weight: lighter;
-        color: all.$green;
+        color: all.$accent-color;
         font-size: clamp(16px, 2.2vw, 24px);
 
         &:hover {

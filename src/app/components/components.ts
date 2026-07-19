@@ -13,7 +13,7 @@ import { SayHiComponent } from './say-hi-component/say-hi-component';
     AboveTheFoldComponent,
     AboutMeComponent,
     MySkillsComponent,
-    PortfolioComponent,
+    // PortfolioComponent,
     ReferenceComponent,
     SayHiComponent,
   ],

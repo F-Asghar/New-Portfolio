@@ -35,12 +35,12 @@ section {
   }
 
   h3 {
-    color: all.$green;
+    color: all.$accent-color;
     margin: 24px 0px;
   }
 
   a {
-    color: all.$green;
+    color: all.$accent-color;
     text-decoration: none;
 
     &:hover {
@@ -73,7 +73,7 @@ section {
         top: 5%;
         padding: 12px 20px;
         background-color: white;
-        color: all.$green;
+        color: all.$accent-color;
         border-radius: 8px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         font-weight: 500;
