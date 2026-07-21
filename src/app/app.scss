@@ -1,7 +1,10 @@
+@use './../../public/assets/styles/all-styles.scss' as all;
+
 .app-container {
   display: grid;
   grid-template-rows: 15dvh 1fr auto; 
-  min-height: 100dvh;                 
+  min-height: 100dvh;    
+  @include all.liquid-background             
 }
 
 .content-area {

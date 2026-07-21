@@ -93,7 +93,10 @@ export class HeaderComponent {
    * @returns {void}
    */
   private updateBodyThemeClass(): void {
-    document.body.classList.toggle('light-theme-active', this.isLightMode);
+    const background = document.getElementById("background");
+    if(background){
+      background.classList.toggle('light-theme-active', this.isLightMode);
+    }
   }
 
   /**
