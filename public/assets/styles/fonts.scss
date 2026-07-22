@@ -1,9 +1,30 @@
-
-
 @font-face {
   font-family: 'Syne Variable';
   src: url('../../../public/assets/fonts/Syne-VariableFont_wght.ttf') format('truetype');
-  font-weight: 100 900; /* variabler Font unterstützt Gewichte von 100 bis 900 */
+  font-weight: 100 900; 
   font-style: normal;
   font-display: swap;
+}
+
+p {
+  font-size: clamp(16px, 5dvw, 24px);
+}
+
+h1 {
+  font-size: clamp(33px, 10vmin, 140px);
+  font-family: 'Syne Variable', sans-serif;
+  font-weight: 800; 
+}
+
+h2 {
+  font-size: clamp(30px, 8dvw, 100px);
+  font-family: 'Syne Variable', sans-serif;
+
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+h3 {
+  font-size: clamp(24px, 5dvw, 48px);
 }

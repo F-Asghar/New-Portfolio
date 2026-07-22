@@ -1,65 +1,68 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
+#above-the-fold {
+  scroll-margin-top: 150px;
+}
+
 section {
   width: 100%;
   @include all.flexi($fd: column);
   max-width: 1440px;
   min-height: 85dvh;
   text-align: center;
+}
 
-  #head-line {
-    width: 100%;
+#head-line {
+  width: 100%;
+  text-align: center;
+}
+
+#name-container {
+  @include all.flexi($ai: center, $gap: 16px);
+  margin-bottom: clamp(0px, 5vmin, 60px);
+
+  #underline {
+    width: clamp(25px, 40.5vmin, 700px);
+    height: clamp(2px, 0.4vmin, 4px);
+    filter: var(--accent-icon-filter);
+    transition: filter 1s ease-in-out;
+  }
+
+  > h3 {
+    font-size: clamp(20px, 6vmin, 48px);
+    color: var(--accent-color);
+    white-space: nowrap;
+    transition: color 0.5s ease-in-out;
+  }
+}
+
+#mail-scroll {
+  width: 100%;
+  height: auto;
+  padding: 48px 0px;
+  @include all.flexi($ai: center, $jc: space-between);
+
+  > div {
+    font-size: 20px;
     text-align: center;
   }
+}
 
-  #name {
-    @include all.flexi($ai: center, $gap: 16px);
-    margin-bottom: clamp(0px, 5vmin, 60px);
-    filter: brightness(1.5);
-    text-shadow:
-      0 0 5px rgba(124, 58, 237, 0.8),
-      0 0 10px rgba(124, 58, 237, 0.4);
+#arrow {
+  overflow: hidden;
+}
 
-    #underline {
-      width: clamp(25px, 40.5vmin, 700px);
-      height: 3px;
-      filter: invert(28%) sepia(83%) saturate(3914%) hue-rotate(314deg) brightness(100%) contrast(103%);
-    }
+#mail {
+  width: 100px;
+  height: 100%;
+  text-wrap: nowrap;
+  @include all.flexi();
 
-    > h3 {
-      font-size: clamp(24px, 6vmin, 48px);
-      color: all.$accent-color;
-    }
-  }
-
-  #mail-scroll {
-    width: 100%;
-    height: auto;
-    padding: 48px 0px;
-    @include all.flexi($ai: center, $jc: space-between);
-
-    #arrow {
-      overflow: hidden;
-    }
-
-    #mail {
-      width: 100px;
-      height: 100%;
-      text-wrap: nowrap;
-      @include all.flexi();
-
-      > a {
-        position: absolute;
-        right: -8px;
-        display: inline-block;
-        transform: rotate(-90deg);
-      }
-    }
-
-    > div {
-      font-size: 20px;
-      text-align: center;
-    }
+  > a {
+    position: absolute;
+    right: -8px;
+    display: inline-block;
+    transform: rotate(-90deg);
   }
 }
 

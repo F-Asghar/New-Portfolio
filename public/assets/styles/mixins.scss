@@ -6,6 +6,8 @@
   gap: $gap;
 }
 
+//#region CSS Custom Properties and Background-Mixin
+
 @property --bg-color-1 {
   syntax: '<color>';
   inherits: false;
@@ -28,11 +30,29 @@
 }
 @property --text-color {
   syntax: '<color>';
-  inherits: true; 
+  inherits: true;
   initial-value: #f8fafc;
+}
+@property --accent-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ff31dc;
+}
+@property --icon-filter {
+  syntax: '*';
+  inherits: true;
+  initial-value: invert(100%) sepia(0%) saturate(2115%) hue-rotate(328deg) brightness(100%)
+    contrast(100%);
+}
+@property --accent-icon-filter {
+  syntax: '*';
+  inherits: true;
+  initial-value: invert(40%) sepia(53%) saturate(6824%) hue-rotate(292deg) brightness(107%) contrast(101%);
 }
 
 @mixin liquid-background {
+  --icon-filter: invert(100%) sepia(0%) saturate(2115%) hue-rotate(328deg) brightness(100%)
+    contrast(100%);
   background: radial-gradient(
     circle at center,
     var(--bg-color-1) 0%,
@@ -48,28 +68,19 @@
     --bg-color-2 3s ease-in-out,
     --bg-color-3 3s ease-in-out,
     --bg-color-4 3s ease-in-out,
-    --text-color 0.5s ease-in-out;
+    --text-color 0.5s ease-in-out,
+    --accent-color 0.5s ease-in-out;
 
   &.light-theme-active {
-    --bg-color-1: #fafaf9; 
-    --bg-color-2: #f5f5f4; 
-    --bg-color-3: #e7e5e4; 
-    --bg-color-4: #d6d3d1; 
+    --bg-color-1: #f1f5f9;
+    --bg-color-2: #e2e8f0;
+    --bg-color-3: #cbd5e1;
+    --bg-color-4: #94a3b8;
     --text-color: #0f172a;
-  }
-
-  &.no-transition {
-    transition: none;
+    --accent-color: #00bc8f;
+    --icon-filter: none;
+    --accent-icon-filter: invert(64%) sepia(78%) saturate(3700%) hue-rotate(127deg) brightness(92%) contrast(101%);
   }
 }
 
-@keyframes switchToLightMode {
-  100% {
-    --bg-color-1: #e7e5e4; 
-    --bg-color-2: #d6d3d1; 
-    --bg-color-3: #a8a29e; 
-    --bg-color-4: #78716c;
-    --text-color: #0f172a;
-  }
-}
-
+//#endregion
