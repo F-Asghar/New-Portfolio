@@ -1,95 +1,95 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
-section {
+.padding {
   height: fit-content;
   width: 100%;
   box-sizing: border-box;
   max-width: 1440px;
 
-  #content-wrapper {
-    display: flex; 
-    gap: 24px; 
-    align-items: stretch; 
-    width: 100%; 
-  }
-
   > h2 {
     width: 100%;
     padding-bottom: 48px;
   }
+}
+
+#content-wrapper {
+  @include all.flexi($gap: 24px, $ai: flex-start);
 
   > div {
-    @include all.flexi($gap: 24px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
 
-    > div {
-      flex: 1; 
-      display: flex; 
-      flex-direction: column; 
-    }
+#about-me-description {
+  @include all.flexi($fd: column, $jc: flex-start);
+}
 
-    #about-me-description {
-      @include all.flexi($fd: column, $jc: flex-start);
+#content {
+  margin-bottom: 48px;
+}
 
-      #content {
-        margin-bottom: 48px;
-      }
+.location-availability {
+  width: 100%;
+  height: 48px;
+  @include all.flexi($ai: center, $jc: flex-start, $gap: 8px);
+}
 
-      .location-availability {
-        width: 100%;
-        height: 48px;
-        @include all.flexi($ai: center, $jc: flex-start, $gap: 8px);
-      }
+.info-bage-icon {
+  filter: var(--accent-icon-filter);
+}
 
-      #lets-talk-btn {
-        width: 100%;
-        @include all.flexi($jc: center);
-        margin-top: 48px;
-      }
-    }
+#lets-talk-btn {
+  width: 100%;
+  @include all.flexi($jc: center);
+  margin: 48px 0px;
+}
 
-    #profile-photo {
-      position: relative;
-      display: inline-block; 
+#profile-photo {
+  position: relative;
+  display: inline-block;
 
-      > img {
-        display: block;
-        z-index: 5;
-        height: 100%;
-        width: 100%; 
-        object-fit: contains;
-        aspect-ratio: 1 / 1;
-      }
+  > img {
+    display: block;
+    z-index: 5;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    aspect-ratio: 1 / 1.2;
+    border-radius: 24px;
+    box-shadow: 0 0 10px var(--accent-color);
+  }
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 10px; 
-        left: 10px; 
-        width: 100%; 
-        height: 100%; 
-        border: 4px solid black;
-        box-sizing: border-box; 
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 10;
-      }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    border: 4px solid var(--text-color);
+    box-sizing: border-box;
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      border-color 0.3s ease;
+    z-index: 10;
+    border-radius: 24px;
+  }
 
-      &:hover::after {
-        opacity: 1;
-      }
-    }
+  &:hover::after {
+    opacity: 1;
   }
 }
 
 //#region Mediaquerries
 
 @include all.notebook {
-  h2 {
-    text-align: center;
-  }
 
   #content-wrapper {
     flex-direction: column;
+    align-items: center;
   }
 
   #about-me {
@@ -97,18 +97,7 @@ section {
   }
 
   #profile-photo {
-    width: 100%;
-  }
-}
-
-@include all.tablet {
-  section > h2 {
-    text-align: left;
-    padding-bottom: 24px;
-  }
-
-  #content-wrapper {
-    align-items: flex-start;
+    width: 80%;
   }
 }
 
