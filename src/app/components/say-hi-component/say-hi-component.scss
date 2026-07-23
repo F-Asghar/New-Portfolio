@@ -211,6 +211,35 @@ section {
   }
 }
 
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.arrow-up {
+  display: inline-block;
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scaleY(1.4);
+  }
+}
+
 //#region Mediaquerries
 
 @include all.tablet {

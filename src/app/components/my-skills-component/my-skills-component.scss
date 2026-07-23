@@ -26,7 +26,7 @@ section {
       width: clamp(250px, 60dvw, 800px);
       position: absolute;
       top: -75px;
-      background-color: #fffcf3;
+      @include all.liquid-background;
       @include all.flexi($jc: center);
     }
 
@@ -90,6 +90,36 @@ section {
       }
     }
   }
+}
+
+
+@keyframes backLoop {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+
+  33% {
+    transform: translateX(60px) translateZ(-125px);
+  }
+
+  66% {
+    transform: translateX(-60px) translateZ(-125px);
+  }
+
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+.loopImage {
+  transform-style: preserve-3d;
+  display: block;
+  transition: transform 0.4s;
+}
+
+/* Diese Klasse wird von Angular gesteuert */
+.is-animating {
+  animation: backLoop 0.4s 1 ease-in-out;
 }
 
 //#region Mediaquerries

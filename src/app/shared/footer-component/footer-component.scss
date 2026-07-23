@@ -59,6 +59,24 @@
   }
 }
 
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-15px);
+  }
+}
+
+.moveUp {
+  transition: transform 0.4s ease-in-out;
+  display: inline-block;
+
+  &:hover {
+    transform: translateY(-15px);
+  }
+}
+
 //#region Mediaquerries
 
 @include all.tablet {

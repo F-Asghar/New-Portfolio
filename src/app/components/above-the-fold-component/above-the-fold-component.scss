@@ -66,6 +66,19 @@ section {
   }
 }
 
+@keyframes arrowDown {
+  0% {
+    transform: translateY(-180px);
+  }
+  100% {
+    transform: translateY(120px);
+  }
+}
+
+.arrowDown {
+  animation: arrowDown 2s infinite;
+}
+
 // #region mediaquerrys
 
 @include all.notebook {

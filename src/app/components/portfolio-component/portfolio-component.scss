@@ -55,6 +55,21 @@ section {
     z-index: 5;
   }
 
+  @keyframes moveToRight {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(25px, 25px);
+    }
+  }
+
+  .moveToRight {
+    animation-name: moveToRight;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
   // #region Frames
 
   .image-frame {
@@ -62,24 +77,86 @@ section {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+  }
 
-    .rotateAndGrow {
-      width: clamp(30px, 10vmin, 70px);
-      position: absolute;
+  .rotateAndGrow {
+    width: clamp(30px, 10vmin, 70px);
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    right: clamp(-45px, -5vw, -30px);
+    top: calc(50% - 20px);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 4px solid black;
+    opacity: 0;
+    transform: translate(15px, 15px);
+    z-index: 5;
+  }
+
+  @keyframes rotateAndGrow {
+    0% {
       opacity: 0;
-      z-index: 10;
-      right: clamp(-45px, -5vw, -30px);
-      top: calc(50% - 20px);
+      transform: rotate(0deg) scale(0.8);
     }
+    100% {
+      opacity: 1;
+      transform: rotate(-120deg) scale(1.2);
+    }
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border: 4px solid black;
+  @keyframes flyRightToLeft {
+    0% {
+      transform: translateX(200px);
       opacity: 0;
-      transform: translate(15px, 15px);
-      z-index: 5;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyLeftToRight {
+    0% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes frameReveal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes imageReveal {
+    from {
+      filter: grayscale(100%);
+    }
+    to {
+      filter: none;
+    }
+  }
+
+  @keyframes flyTopToBottom {
+    0% {
+      transform: translateY(-130px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -177,7 +254,7 @@ section {
       .portfolio-content {
         width: 100%;
         height: 100%;
-        display: flex; 
+        display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
@@ -262,7 +339,7 @@ section {
         width: 100%;
         height: 100%;
         border: none;
-        display: flex; 
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;

@@ -18,21 +18,6 @@
 
 //#region Keyframes and Classes
 
-@keyframes moveToRight {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(25px, 25px);
-  }
-}
-
-.moveToRight {
-  animation-name: moveToRight; 
-  animation-duration: 3s; 
-  animation-iteration-count: infinite;
-}
-
 @keyframes moveToLeft {
   0% {
     transform: translate(0, 0);
@@ -46,147 +31,6 @@
   animation-name: moveToLeft; 
   animation-duration: 3s; 
   animation-iteration-count: infinite;
-}
-
-@keyframes moveUp {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-15px);
-  }
-}
-
-.moveUp {
-  transition: transform 0.4s ease-in-out;
-  display: inline-block;
-
-  &:hover {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes arrowDown {
-  0% {
-    transform: translateY(-180px);
-  }
-  100% {
-    transform: translateY(120px);
-  }
-}
-
-.arrowDown {
-  animation: arrowDown 2s infinite;
-}
-
-@keyframes backLoop {
-  0% {
-    transform: translateX(0) translateZ(0);
-  }
-
-  33% {
-    transform: translateX(60px) translateZ(-125px);
-  }
-
-  66% {
-    transform: translateX(-60px) translateZ(-125px);
-  }
-
-  100% {
-    transform: translateX(0) translateZ(0);
-  }
-}
-
-.loopImage {
-  transform-style: preserve-3d;
-  display: block;
-  transition: transform 0.4s;
-}
-
-/* Diese Klasse wird von Angular gesteuert */
-.is-animating {
-  animation: backLoop 0.4s 1 ease-in-out;
-}
-
-@keyframes rotateAndGrow {
-  0% {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: rotate(-120deg) scale(1.2);
-  }
-}
-
-@keyframes flyRightToLeft {
-  0% {
-    transform: translateX(200px);
-    opacity: 0; 
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1; 
-  }
-}
-
-@keyframes flyLeftToRight {
-  0% {
-    transform: translateX(-200px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes frameReveal {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes imageReveal {
-  from{
-    filter: grayscale(100%);
-  }
-  to{
-    filter: none;
-  }
-}
-
-@keyframes flyTopToBottom {
-  0% {
-    transform: translateY(-130px); 
-    opacity: 0; 
-  }
-  100% {
-    transform: translateY(0); 
-    opacity: 1; 
-  }
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  10% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  90% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
 }
 
 @keyframes slideUnderline {
@@ -221,28 +65,6 @@
     &::after {
       animation: slideUnderline 0.2s ease-out forwards;
     }
-  }
-}
-
-@keyframes stretchArrow {
-  0% {
-    transform: scaleY(1);
-  }
-  50% {
-    transform: scaleY(1.5);
-  }
-  100% {
-    transform: scaleY(1);
-  }
-}
-
-.arrow-up {
-  display: inline-block;
-  transform-origin: bottom center;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scaleY(1.4);
   }
 }
 
