@@ -24,8 +24,6 @@ section {
   #underline {
     width: clamp(25px, 40.5vmin, 700px);
     height: clamp(2px, 0.4vmin, 4px);
-    filter: var(--accent-icon-filter);
-    transition: filter 1s ease-in-out;
   }
 
   > h3 {

@@ -1,32 +1,57 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
-section {
+#my-skills {
+  scroll-margin-top: 150px;
+}
+
+.padding {
   width: 100%;
   height: auto;
   max-width: 1440px;
 
-  > div {
+  #arrow-wrapper {
     width: 100%;
     height: 30dvh;
     @include all.flexi($jc: flex-end);
   }
 
-  > section {
+  #skills-section {
     width: 100%;
     height: fit-content;
     margin-top: 80px;
-    border: 4px solid black;
     position: relative;
     flex-wrap: wrap;
     padding-top: clamp(30px, 4vw, 80px);
     @include all.flexi($jc: space-around);
+    border-left: 4px solid var(--text-color);
+    border-right: 4px solid var(--text-color);
+    border-bottom: 4px solid var(--text-color);
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0px; 
+      height: 4px;
+      background-color: var(--text-color);
+
+      width: clamp(10px, 12vw, 300px);
+    }
+
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
 
     #my-skills-headline {
       height: fit-content;
       width: clamp(250px, 60dvw, 800px);
       position: absolute;
-      top: -75px;
-      @include all.liquid-background;
+      top: 0px;
+      left: 50%;
+      transform: translate(-50%, -50%);
       @include all.flexi($jc: center);
     }
 
@@ -45,6 +70,7 @@ section {
       > img {
         width: clamp(30px, 8vw, 100px);
         height: clamp(30px, 8vw, 100px);
+        filter: var(--icon-filter);
       }
 
       > p {
@@ -92,7 +118,6 @@ section {
   }
 }
 
-
 @keyframes backLoop {
   0% {
     transform: translateX(0) translateZ(0);
@@ -115,41 +140,10 @@ section {
   transform-style: preserve-3d;
   display: block;
   transition: transform 0.4s;
+  filter: var(--icon-filter);
 }
 
 /* Diese Klasse wird von Angular gesteuert */
 .is-animating {
   animation: backLoop 0.4s 1 ease-in-out;
 }
-
-//#region Mediaquerries
-
-@include all.notebook {
-  section > section {
-    #my-skills-headline {
-      top: -60px;
-    }
-  }
-
-  section > section {
-    justify-content: center;
-  }
-}
-
-@include all.tablet {
-  section > section {
-    #my-skills-headline {
-      top: -40px;
-    }
-  }
-}
-
-@include all.mobile {
-  section > section {
-    #my-skills-headline {
-      top: -25px;
-    }
-  }
-}
-
-//#endregion

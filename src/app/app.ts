@@ -1,4 +1,4 @@
-import { Component, signal, effect } from '@angular/core';
+import { Component, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/header-component/header-component';
 import { FooterComponent } from './shared/footer-component/footer-component';

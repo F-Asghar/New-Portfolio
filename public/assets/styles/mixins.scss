@@ -36,7 +36,7 @@
 @property --accent-color {
   syntax: '<color>';
   inherits: true;
-  initial-value: #ff31dc;
+  initial-value: #8C2BBB;
 }
 @property --icon-filter {
   syntax: '*';
@@ -47,7 +47,7 @@
 @property --accent-icon-filter {
   syntax: '*';
   inherits: true;
-  initial-value: invert(40%) sepia(53%) saturate(6824%) hue-rotate(292deg) brightness(107%) contrast(101%);
+  initial-value: invert(23%) sepia(57%) saturate(3622%) hue-rotate(270deg) brightness(85%) contrast(94%);
 }
 
 @mixin liquid-background {

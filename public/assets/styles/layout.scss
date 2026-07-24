@@ -58,3 +58,9 @@
 }
 
 //#endregion
+
+
+.icon-color-theme{
+  filter: var(--accent-icon-filter);
+  transition: filter 1s ease-in-out;
+}

@@ -9,6 +9,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 
 export class MySkillsComponent {
+  isLightMode: boolean = localStorage.getItem('isLightMode') === 'true';
   isAnimAngular = false;
   isAnimTs = false;
   isAnimJs = false;

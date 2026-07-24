@@ -1,12 +1,12 @@
 <main class="structure">
   <section class="padding">
-    <div>
+    <div id="arrow-wrapper">
       <a href="#my-skills">
-        <img class="moveToLeft" src="assets/icons/arrow-down-left.png" alt="" />
+        <img class="moveToLeft icon-color-theme" src="assets/icons/arrow-down-left.png" alt="" />
       </a>
     </div>
-    <section>
-      <div id="my-skills-headline">
+    <section id="skills-section">
+      <div id="my-skills-headline" [class.light-theme-active]="isLightMode">
         <h2 id="my-skills">{{ 'my-skills.headline' | translate }}</h2>
       </div>
 
@@ -19,7 +19,6 @@
           src="assets/icons/angular.png"
           alt="Angular-Icon"
         />
-
         <p>Angular</p>
       </div>
 
