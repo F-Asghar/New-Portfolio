@@ -1,120 +1,122 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
 #my-skills {
-  scroll-margin-top: 150px;
+  scroll-margin-top: 130px;
 }
 
 .padding {
   width: 100%;
   height: auto;
   max-width: 1440px;
+}
 
-  #arrow-wrapper {
-    width: 100%;
-    height: 30dvh;
-    @include all.flexi($jc: flex-end);
+#arrow-wrapper {
+  width: 100%;
+  height: 30dvh;
+  @include all.flexi($jc: flex-end);
+}
+
+#skills-section {
+  width: 100%;
+  height: fit-content;
+  margin-top: 80px;
+  position: relative;
+  flex-wrap: wrap;
+  padding-top: clamp(30px, 4vw, 80px);
+  @include all.flexi($jc: space-around);
+  border-left: 4px solid var(--text-color);
+  border-right: 4px solid var(--text-color);
+  border-bottom: 4px solid var(--text-color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0px;
+    height: 4px;
+    background-color: var(--text-color);
+    width: clamp(10px, 12vw, 300px);
   }
 
-  #skills-section {
+  &::before {
+    left: 0;
+  }
+  &::after {
+    right: 0;
+  }
+}
+
+#my-skills-headline {
+  height: fit-content;
+  width: clamp(250px, 60dvw, 800px);
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include all.flexi($jc: center);
+}
+
+#contact-me {
+  font-weight: lighter;
+  color: var(--accent-color);
+  font-size: clamp(16px, 2.2vw, 24px);
+
+  &:hover {
+    filter: brightness(1.5);
+    text-shadow: 0 0 0.8px currentColor;
+  }
+}
+
+#education-wraper {
+  @include all.flexi($jc: center, $ai: center);
+  perspective: 600px;
+  overflow: hidden;
+  width: clamp(80px, 8vw, 100px);
+  aspect-ratio: 1 / 1;
+
+  > img {
     width: 100%;
-    height: fit-content;
-    margin-top: 80px;
-    position: relative;
-    flex-wrap: wrap;
-    padding-top: clamp(30px, 4vw, 80px);
-    @include all.flexi($jc: space-around);
-    border-left: 4px solid var(--text-color);
-    border-right: 4px solid var(--text-color);
-    border-bottom: 4px solid var(--text-color);
+    height: 100%;
+    object-fit: contain;
+  }
+}
 
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0px; 
-      height: 4px;
-      background-color: var(--text-color);
+#education {
+  width: 100%;
+  height: 15dvh;
+  @include all.flexi($jc: center, $gap: 16px);
+  font-weight: bold;
+  padding: 0px 16px;
 
-      width: clamp(10px, 12vw, 300px);
-    }
+  p {
+    font-size: clamp(16px, 2.2vw, 24px);
+  }
+}
 
-    &::before {
-      left: 0;
-    }
-    &::after {
-      right: 0;
-    }
+.skill-icon {
+  width: clamp(80px, 8.5vw, 120px);
+  height: fit-content;
+  @include all.flexi($ai: center, $fd: column, $jc: center);
+  text-align: center;
+  margin: clamp(8px, 4vw, 80px);
+  perspective: 600px;
 
-    #my-skills-headline {
-      height: fit-content;
-      width: clamp(250px, 60dvw, 800px);
-      position: absolute;
-      top: 0px;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      @include all.flexi($jc: center);
-    }
+  &:hover {
+    color: all.$accent-color;
+  }
 
-    .skill-icon {
-      width: clamp(85px, 9vw, 120px);
-      height: fit-content;
-      @include all.flexi($ai: center, $fd: column, $jc: center);
-      text-align: center;
-      margin: clamp(8px, 4vw, 80px);
-      perspective: 600px;
+  > img {
+    width: clamp(30px, 8vw, 100px);
+    height: clamp(30px, 8vw, 100px);
+    filter: var(--icon-filter);
+    transition: filter 2s ease-in-out;
+  }
 
-      &:hover {
-        color: all.$accent-color;
-      }
-
-      > img {
-        width: clamp(30px, 8vw, 100px);
-        height: clamp(30px, 8vw, 100px);
-        filter: var(--icon-filter);
-      }
-
-      > p {
-        z-index: 10;
-        margin-top: 16px;
-        font-weight: bold;
-        font-size: clamp(16px, 2.2vw, 24px);
-      }
-    }
-
-    #education {
-      width: 100%;
-      height: 15dvh;
-      @include all.flexi($jc: center, $gap: 16px);
-      font-weight: bold;
-      padding: 0px 16px;
-
-      p {
-        font-size: clamp(16px, 2.2vw, 24px);
-      }
-
-      #education-wraper {
-        @include all.flexi($jc: center, $ai: center);
-        perspective: 600px;
-        overflow: hidden;
-        width: clamp(80px, 8vw, 100px);
-
-        > img {
-          width: clamp(40px, 8vw, 100px);
-          height: clamp(40px, 8vw, 100px);
-        }
-      }
-
-      #contact-me {
-        font-weight: lighter;
-        color: all.$accent-color;
-        font-size: clamp(16px, 2.2vw, 24px);
-
-        &:hover {
-          filter: brightness(1);
-          text-shadow: 0 0 0.8px currentColor;
-        }
-      }
-    }
+  > p {
+    z-index: 10;
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: clamp(16px, 2.2vw, 24px);
   }
 }
 

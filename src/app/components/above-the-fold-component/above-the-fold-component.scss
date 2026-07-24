@@ -76,6 +76,7 @@ section {
 .arrowDown {
   animation: arrowDown 2s infinite;
   filter: var(--icon-filter);
+  transition: filter 2s ease-in-out;
 }
 
 // #region mediaquerrys
