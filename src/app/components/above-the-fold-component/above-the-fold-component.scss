@@ -18,13 +18,8 @@ section {
 }
 
 #name-container {
-  @include all.flexi($ai: center, $gap: 16px);
+  @include all.flexi($ai: center, $gap: 14px);
   margin-bottom: clamp(0px, 5vmin, 60px);
-
-  #underline {
-    width: clamp(25px, 40.5vmin, 700px);
-    height: clamp(2px, 0.4vmin, 4px);
-  }
 
   > h3 {
     font-size: clamp(20px, 6vmin, 48px);
@@ -32,6 +27,11 @@ section {
     white-space: nowrap;
     transition: color 0.5s ease-in-out;
   }
+}
+
+#underline {
+  width: 42%;
+  height: clamp(2px, 0.4vmin, 4px);
 }
 
 #mail-scroll {
@@ -75,6 +75,7 @@ section {
 
 .arrowDown {
   animation: arrowDown 2s infinite;
+  filter: var(--icon-filter);
 }
 
 // #region mediaquerrys
