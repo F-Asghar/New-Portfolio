@@ -2,7 +2,11 @@
   <section class="padding">
     <div>
       <a href="#portfolio">
-        <img class="moveToRight" src="assets/icons/arrow-down-right.png" alt="Arrow" />
+        <img
+          class="moveToRight icon-color-theme"
+          src="assets/icons/arrow-down-right.png"
+          alt="Arrow"
+        />
       </a>
     </div>
 
@@ -12,7 +16,7 @@
       <p>{{ 'portfolio.description-two' | translate }}</p>
     </div>
 
-    <div class="left-content">
+    <!-- <div class="left-content">
       <section class="responsive-number">
         <h4>01/03</h4>
       </section>
@@ -109,7 +113,38 @@
           </div>
         </section>
       </div>
-    </div>
+    </div> -->
 
+    <section id="projects">
+      <span class="project-number">01/03</span>
+      <div class="project">
+
+        
+
+        <div class="project-immage-wrapper">
+          <img class="picture" src="assets/img/join.png" alt="Join" />
+        </div>
+
+
+
+
+        <div class="project-content-wrapper">
+          <div class="project-details">
+            <h3 class="project-title">Join</h3>
+            <p class="project-tech">Angular | TypeScript | HTML | CSS | Supabase</p>
+            <p>
+              {{ 'portfolio.join' | translate }}
+            </p>
+            <div class="project-buttons">
+              <a class="button-two" href="https://github.com/F-Asghar/join.git" target="_blank"
+                >GitHub</a
+              >
+              <a class="button-two" href="https://F-Asghar.github.io/join/" target="_blank">Live</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
   </section>
 </main>
