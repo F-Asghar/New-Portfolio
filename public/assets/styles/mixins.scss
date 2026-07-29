@@ -6,6 +6,24 @@
   gap: $gap;
 }
 
+@mixin active-project-styles {
+  .project-immage-wrapper .project-picture {
+    filter: grayscale(0) drop-shadow(0 0 15px var(--accent-color));
+  }
+  .project-immage-wrapper .arrow-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-120deg) scale(1.2);
+  }
+  .project-immage-wrapper::after {
+    opacity: 1;
+  }
+  .project-content-wrapper {
+    opacity: 1;
+    transform: translateX(0);
+    translate: 0 0;
+  }
+}
+
 //#region CSS Custom Properties and Background-Mixin
 
 @property --bg-color-1 {
