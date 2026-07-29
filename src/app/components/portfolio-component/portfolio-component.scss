@@ -22,6 +22,7 @@
   max-width: 1440px;
   padding-bottom: 48px;
   overflow: hidden;
+  // padding-bottom: 0;
 }
 
 .headline {
@@ -44,12 +45,61 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     gap: 40px;
+    margin-bottom: 10dvh;
 
     @media (min-width: 1024px) {
       &:hover {
         @include all.active-project-styles;
       }
     }
+
+    // #region reversed
+
+    &.reversed {
+      @media (min-width: 1025px) {
+        .project-immage-wrapper {
+          grid-column: 2;
+        }
+
+        .project-content-wrapper {
+          grid-column: 1;
+          grid-row: 1;
+          transform: translateX(0 200px);
+
+          &:hover {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+
+        &:hover {
+          .project-immage-wrapper .arrow-icon {
+            right: auto;
+            left: calc(5% - 10px);
+            transform: translate(-50%, -50%) rotate(120deg) scale(1.2);
+          }
+        }
+      }
+
+      .project-number {
+        left: 0;
+        right: auto;
+      }
+
+      .project-immage-wrapper {
+        &::after {
+          left: auto;
+          right: calc(5% + 10px);
+        }
+
+        .arrow-icon {
+          right: auto;
+          left: calc(5% - 10px);
+        }
+      }
+    }
+
+    // #endregion reversed
   }
 }
 
@@ -64,7 +114,7 @@
 
 .project-number {
   position: absolute;
-  top: 0;
+  top: -20px;
   right: 0;
   font-size: clamp(24px, 3vw, 40px);
   font-weight: 700;
@@ -108,6 +158,13 @@
       &::after {
         opacity: 1;
       }
+
+      :host-context(.reversed) &,
+      .project.reversed & {
+        .arrow-icon {
+          transform: translate(-50%, -50%) rotate(120deg) scale(1.2);
+        }
+      }
     }
   }
 
@@ -142,7 +199,7 @@
   width: 100%;
   height: 100%;
   @include all.flexi($ai: center, $jc: center, $fd: column);
-  padding-top: clamp(16px, 3vw, 32px);
+  padding-top: clamp(16px, 3dvw, 32px);
   transition:
     transform 0.4s ease-out,
     opacity 0.4s ease-out;
@@ -156,7 +213,13 @@
       translate 1.5s ease;
     translate: -50% 0;
 
-    &.show {
+    :host-context(.reversed) &,
+    .project.reversed & {
+      translate: 50% 0;
+    }
+
+    &.show,
+    .project.reversed &.show {
       opacity: 1;
       translate: 0 0;
     }
@@ -179,7 +242,7 @@
 
 .project-tech {
   color: var(--accent-color);
-  font-weight: 500;
+  font-weight: 800;
 }
 
 .project-buttons {
@@ -203,362 +266,30 @@
 //#region Mediaquerries
 
 @include all.notebook {
+  .padding{
+    padding-bottom: 0;
+  }
+  
   #projects .project {
     grid-template-columns: 1fr;
     gap: 32px;
+    justify-items: center;
+    align-items: center;
   }
 
   .project-immage-wrapper,
   .project-content-wrapper {
-    width: 100%;
+    width: 80%;
     aspect-ratio: auto;
   }
 
   .project-content-wrapper {
-    min-height: 300px;
+    min-height: 330px;
   }
 
   .project-number {
     top: -40px;
   }
 }
-
-//#endregion
-
-// @keyframes flyRightToLeft {
-//   0% {
-//     transform: translateX(200px);
-//     opacity: 0;
-//   }
-//   100% {
-//     transform: translateX(0);
-//     opacity: 1;
-//   }
-// }
-
-// @keyframes flyTopToBottom {
-//   0% {
-//     transform: translateY(-130px);
-//     opacity: 0;
-//   }
-//   100% {
-//     transform: translateY(0);
-//     opacity: 1;
-//   }
-// }
-
-// .build-with {
-//   color: all.$accent-color;
-// }
-
-// .content {
-//   min-height: 400px;
-//   max-height: fit-content;
-// }
-
-// .buttons {
-//   width: 100%;
-//   @include all.flexi($jc: center, $gap: 16px);
-// }
-
-// .responsive-number {
-//   width: 100%;
-//   height: 40px;
-//   font-size: 36px;
-//   @include all.flexi($jc: flex-end);
-//   display: none;
-// }
-
-// .responsive-number-right {
-//   width: 100%;
-//   height: 40px;
-//   font-size: 36px;
-//   display: none;
-// }
-
-// .picture {
-//   width: 100%;
-//   height: 100%;
-//   filter: grayscale(100%);
-//   z-index: 5;
-// }
-
-// .left-content {
-//   width: 100%;
-//   @include all.flexi($gap: 80px);
-//   padding-bottom: 100px;
-
-//   @media (min-width: 1025px) {
-//     &:hover {
-//       .picture {
-//         animation: imageReveal 0.7s ease-out forwards;
-//       }
-//       .portfolio-content {
-//         animation: flyLeftToRight 0.7s ease-out forwards;
-//       }
-
-//       .image-frame::after {
-//         animation: frameReveal 0.7s ease-out forwards;
-//       }
-
-//       .rotateAndGrow {
-//         animation: rotateAndGrow 0.5s ease-in-out 0s 1 forwards;
-//       }
-//     }
-//   }
-
-//   @media (max-width: 1024px) {
-//     .portfolio-content {
-//       animation: flyTopToBottom both;
-//       animation-timeline: view(70% 20%);
-//     }
-
-//     .rotateAndGrow {
-//       opacity: 1;
-//       animation: rotateAndGrow both;
-//       animation-timeline: view(10% 40%);
-//     }
-
-//     .picture {
-//       animation: imageReveal both;
-//       animation-timeline: view(10% 60%);
-//     }
-
-//     .image-frame::after {
-//       animation: frameReveal both;
-//       animation-timeline: view(0% 60%);
-//     }
-//   }
-
-//   > div {
-//     width: 50%;
-//     aspect-ratio: 4 / 3;
-//     max-height: clamp(100px, 40dvh, 600px);
-//     background-color: transparent;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     > h3 {
-//       position: absolute;
-//       right: 0;
-//       top: 0;
-//       font-size: clamp(36px, 4vw, 48px);
-//     }
-
-//     .portfolio-content {
-//       width: 100%;
-//       height: 100%;
-//       display: flex;
-//       align-items: center;
-//       justify-content: center;
-//       flex-direction: column;
-//       text-align: center;
-//       gap: 24px;
-//       margin-top: 40px;
-//       border: none;
-//       opacity: 0;
-
-//       p {
-//         font-size: clamp(16px, 1.8vw, 24px);
-//       }
-//     }
-//   }
-// }
-
-// .right-content {
-//   width: 100%;
-//   height: fit-content;
-//   @include all.flexi($fd: row-reverse, $gap: 80px);
-//   margin-bottom: 80px;
-
-//   @media (min-width: 1025px) {
-//     &:hover {
-//       .picture {
-//         animation: imageReveal 0.7s ease-out forwards;
-//       }
-//       .portfolio-content {
-//         animation: flyRightToLeft 0.7s ease-out forwards;
-//       }
-
-//       .image-frame-right::after {
-//         animation: frameReveal 0.7s ease-out forwards;
-//       }
-
-//       .rotateAndGrow {
-//         animation: rotateAndGrow 0.5s ease-in-out 0s 1 forwards;
-//       }
-//     }
-//   }
-
-//   @media (max-width: 1024px) {
-//     .portfolio-content {
-//       animation: flyTopToBottom both;
-//       animation-timeline: view(70% 20%);
-//     }
-
-//     .rotateAndGrow {
-//       opacity: 1;
-//       animation: rotateAndGrow both;
-//       animation-timeline: view(10% 40%);
-//     }
-
-//     .picture {
-//       animation: imageReveal both;
-//       animation-timeline: view(10% 60%);
-//     }
-
-//     .image-frame-right::after {
-//       animation: frameReveal both;
-//       animation-timeline: view(0% 60%);
-//     }
-//   }
-
-//   > div {
-//     width: 50%;
-//     aspect-ratio: 4 / 3;
-//     max-height: clamp(100px, 40dvh, 600px);
-//     background-color: transparent;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     > h3 {
-//       position: absolute;
-//       left: 0;
-//       top: 0;
-//       font-size: clamp(36px, 4vw, 48px);
-//     }
-
-//     .portfolio-content {
-//       width: 100%;
-//       height: 100%;
-//       border: none;
-//       display: flex;
-//       flex-direction: column;
-//       align-items: center;
-//       justify-content: center;
-//       text-align: center;
-//       gap: 24px;
-//       margin-top: 40px;
-//       opacity: 0;
-
-//       p {
-//         font-size: clamp(16px, 1.8vw, 24px);
-//       }
-//     }
-//   }
-// }
-
-// #region Frames
-
-// .image-frame {
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-end;
-
-//   .rotateAndGrow {
-//     width: clamp(30px, 10vmin, 70px);
-//     position: absolute;
-//     opacity: 0;
-//     z-index: 10;
-//     right: clamp(-45px, -5vw, -30px);
-//     top: calc(50% - 20px);
-//   }
-
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     inset: 0;
-//     border: 4px solid black;
-//     opacity: 0;
-//     transform: translate(15px, 15px);
-//     z-index: 5;
-//   }
-// }
-
-// .image-frame-right {
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: flex-end;
-
-//   .rotateAndGrow {
-//     width: clamp(30px, 10vmin, 70px);
-//     position: absolute;
-//     opacity: 0;
-//     z-index: 10;
-//     left: clamp(-45px, -5vw, -30px);
-//     top: calc(50% - 20px);
-//   }
-
-//   &::after {
-//     content: '';
-//     position: absolute;
-//     inset: 0;
-//     border: 4px solid black;
-//     z-index: 5;
-//     opacity: 0;
-//     transform: translate(-15px, 15px);
-//   }
-// }
-
-// #endregion
-
-//#region Mediaquerries
-
-// @include all.notebook {
-//   .left-content {
-//     flex-direction: column;
-//     gap: 15px;
-//   }
-//   .left-content > div {
-//     width: 80%;
-//   }
-
-//   .right-content {
-//     flex-direction: column;
-//     gap: 15px;
-//   }
-//   .right-content > div {
-//     width: 80%;
-//   }
-
-//   .responsive-number {
-//     display: flex;
-//   }
-//   .responsive-number-right {
-//     display: flex;
-//   }
-
-//   .left-content > div > h3 {
-//     display: none;
-//   }
-
-//   .right-content > div > h3 {
-//     display: none;
-//   }
-// }
-
-// @include all.tablet {
-//   .left-content > div {
-//     .portfolio-content {
-//       margin-top: 60px;
-//     }
-//   }
-
-//   .right-content > div {
-//     .portfolio-content {
-//       margin-top: 60px;
-//     }
-//   }
-// }
-
-// @include all.mobile {
-//   .buttons {
-//     flex-direction: column;
-//   }
-// }
 
 //#endregion
