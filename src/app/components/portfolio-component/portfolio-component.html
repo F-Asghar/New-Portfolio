@@ -16,95 +16,37 @@
       <p>{{ 'portfolio.description-two' | translate }}</p>
     </div>
 
-    <!-- <section id="projects">
-      
-      <div class="project">
+    <section id="projects">
+      @for (
+        project of projects;
+        track project.title;
+        let i = $index;
+        let count = $count;
+        let odd = $odd
+      ) {
+        <div class="project" [class.reversed]="odd">
+          <span class="project-number">{{ formatNumber(i + 1) }}/{{ formatNumber(count) }}</span>
 
-        
-        <span class="project-number">01/03</span>
-        <div class="project-immage-wrapper">
-          <img class="arrow-icon" src="assets/icons/arrow-filled.png" alt="Arrow" />
-          <img class="project-picture" src="assets/img/join.png" alt="Join" />
-        </div>
+          <div class="project-immage-wrapper">
+            <img class="arrow-icon" src="assets/icons/arrow-filled.png" alt="Arrow" />
+            <img class="project-picture" [src]="project.imageSrc" [alt]="project.imageAlt" />
+          </div>
 
-
-
-
-        <div class="project-content-wrapper">
-          <div class="project-details">
-            <h3 class="project-title">Join</h3>
-            <p class="project-tech">Angular | TypeScript | HTML | CSS | Supabase</p>
-            <p>
-              {{ 'portfolio.join' | translate }}
-            </p>
-            <div class="project-buttons">
-              <a class="button-two" href="https://github.com/F-Asghar/join.git" target="_blank"
-                >GitHub</a
-              >
-              <a class="button-two" href="https://F-Asghar.github.io/join/" target="_blank">Live</a>
+          <div class="project-content-wrapper">
+            <div class="project-details">
+              <h3 class="project-title">{{ project.title }}</h3>
+              <p class="project-tech">{{ project.tech }}</p>
+              <p>
+                {{ project.descriptionKey | translate }}
+              </p>
+              <div class="project-buttons">
+                <a class="button-two" [href]="project.githubUrl" target="_blank">GitHub</a>
+                <a class="button-two" [href]="project.liveUrl" target="_blank">Live</a>
+              </div>
             </div>
           </div>
-
         </div>
-      </div>
-    </section> -->
-
-<!-- <section id="projects">
-  @for (project of projects; track project.title; let i = $index; let count = $count) {
-    <div class="project">
-      <span class="project-number">{{ formatNumber(i + 1) }}/{{ formatNumber(count) }}</span>
-      
-      <div class="project-immage-wrapper">
-        <img class="arrow-icon" src="assets/icons/arrow-filled.png" alt="Arrow" />
-        <img class="project-picture" [src]="project.imageSrc" [alt]="project.imageAlt" />
-      </div>
-
-      <div class="project-content-wrapper">
-        <div class="project-details">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-tech">{{ project.tech }}</p>
-          <p>
-            {{ project.descriptionKey | translate }}
-          </p>
-          <div class="project-buttons">
-            <a class="button-two" [href]="project.githubUrl" target="_blank">GitHub</a>
-            <a class="button-two" [href]="project.liveUrl" target="_blank">Live</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  }
-</section> -->
-
-<section id="projects">
-  @for (project of projects; track project.title; let i = $index; let count = $count; let odd = $odd) {
-    <div class="project" [class.reversed]="odd">
-
-      <span class="project-number">{{ formatNumber(i + 1) }}/{{ formatNumber(count) }}</span>
-      
-      <div class="project-immage-wrapper">
-        <img class="arrow-icon" src="assets/icons/arrow-filled.png" alt="Arrow" />
-        <img class="project-picture" [src]="project.imageSrc" [alt]="project.imageAlt" />
-      </div>
-
-      <div class="project-content-wrapper">
-        <div class="project-details">
-          <h3 class="project-title">{{ project.title }}</h3>
-          <p class="project-tech">{{ project.tech }}</p>
-          <p>
-            {{ project.descriptionKey | translate }}
-          </p>
-          <div class="project-buttons">
-            <a class="button-two" [href]="project.githubUrl" target="_blank">GitHub</a>
-            <a class="button-two" [href]="project.liveUrl" target="_blank">Live</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  }
-</section>
-
+      }
+    </section>
   </section>
 </main>
