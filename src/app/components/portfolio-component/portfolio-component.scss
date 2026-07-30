@@ -1,5 +1,9 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
+#portfolio {
+  scroll-margin-top: 15dvh;
+}
+
 .moveToRight {
   animation-name: moveToRight;
   animation-duration: 3s;
