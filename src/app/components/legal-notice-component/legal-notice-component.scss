@@ -5,27 +5,29 @@
   width: 100%;
   max-width: 1440px; 
   flex-grow: 1;
-  min-height: 63.2dvh;
   margin-bottom: 24px;
 
   h2 {
-    margin-bottom: 16px;
+    margin: 16px 0;
   }
+
   p {
     font-size: 16px;
   }
 
   a {
-    color: all.$accent-color;
+    color: var(--accent-color);
   }
 
-  .slide-underline {
-    font-size: 20px;
-    font-weight: lighter;
+  .arrow-back{
+    width: clamp(24px, 3dvw, 32px);
+    position:absolute;
+    top: 24px;
+    right:clamp(12px, 5%, 48px);
+    filter: var(--accent-icon-filter);
 
-    &:hover {
-      filter: brightness(1);
-      text-shadow: 0 0 0.8px currentColor;
+    &:hover{
+      cursor: pointer;
     }
   }
 }
