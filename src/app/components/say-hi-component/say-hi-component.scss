@@ -1,5 +1,9 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
+#say-hi {
+  scroll-margin-top: 140px;
+}
+
 .structure {
   background-color: black;
 
@@ -24,7 +28,7 @@
   img {
     width: 250px;
     height: 250px;
-    filter: var(--icon-filter);
+    filter: var(--accent-icon-filter);
     transition: filter 2s ease-in-out;
   }
 }
@@ -37,13 +41,12 @@
   max-width: 1440px;
 
   h3 {
-    color: all.$accent-color;
+    color: var(--accent-color);
     margin: 24px 0px;
   }
 
   a {
-    color: all.$accent-color;
-    text-decoration: none;
+    color: var(--accent-color);
 
     &:hover {
       filter: brightness(1.2);
@@ -78,7 +81,7 @@
   top: 5%;
   padding: 12px 20px;
   background-color: white;
-  color: all.$accent-color;
+  color: var(--accent-color);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-weight: 500;

@@ -3,6 +3,11 @@
 .structure {
   background-color: black;
   color: white;
+
+  &.light-theme-active,
+  :host-context(.light-theme-active) & {
+    --text-color: #ffffff;
+  }
 }
 
 .logo {

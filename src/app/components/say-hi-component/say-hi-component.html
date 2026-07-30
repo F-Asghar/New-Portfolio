@@ -121,12 +121,14 @@
                 {{ 'say-hi.privacy-policy-three' | translate }}
               </p>
 
-            <p
-              class="error-message"
-              [class.invalid]="!userForm.get('privacyPolicy')?.valid && userForm.get('privacyPolicy')?.touched"
-            >
-              {{ 'say-hi.privacy-policy-required' | translate }}
-            </p>
+              <p
+                class="error-message"
+                [class.invalid]="
+                  !userForm.get('privacyPolicy')?.valid && userForm.get('privacyPolicy')?.touched
+                "
+              >
+                {{ 'say-hi.privacy-policy-required' | translate }}
+              </p>
             </div>
           </div>
           <div id="button-wrapper" (click)="handleDisabledClick()">
