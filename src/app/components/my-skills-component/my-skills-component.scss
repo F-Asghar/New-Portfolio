@@ -101,8 +101,10 @@
   margin: clamp(8px, 4vw, 80px);
   perspective: 600px;
 
-  &:hover {
-    color: all.$accent-color;
+ &:hover {
+    > p {
+      color: var(--accent-color);
+    }
   }
 
   > img {
