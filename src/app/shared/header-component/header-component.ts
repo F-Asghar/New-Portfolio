@@ -38,7 +38,6 @@ export class HeaderComponent {
   navClick(): void {
     this.isMenuOpen = !this.isMenuOpen;
     this.toggleBodyNoScroll();
-    this.toggleMobileLanguage();
     this.handleBurgerIcon();
   }
 
@@ -52,20 +51,6 @@ export class HeaderComponent {
     const bodyRef = document.getElementById('body') as HTMLBodyElement;
     if (!bodyRef) return;
     bodyRef.style.overflow = this.isMenuOpen ? 'hidden' : '';
-  }
-
-  /**
-   * Toggles the visibility of the language selection wrapper on mobile devices
-   * (viewports <= 640px) based on the menu's open state.
-   * @private
-   * @returns {void}
-   */
-  private toggleMobileLanguage(): void {
-    if (window.innerWidth > 640) return;
-    const languageDiv = document.getElementById('language') as HTMLElement;
-    if (languageDiv) {
-      languageDiv.style.display = this.isMenuOpen ? 'flex' : 'none';
-    }
   }
 
   /**

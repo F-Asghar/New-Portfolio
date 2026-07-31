@@ -229,18 +229,18 @@ nav {
 }
 
 // #region Mediaquerries
+
 @include all.mobile {
   nav {
     @include all.flexi($ai: center, $jc: space-between);
-    #language {
-      display: none;
-    }
-  }
-}
 
-@media (max-width: 641px) {
-  #language {
-    display: flex;
+    #language {
+      display: none; 
+
+      &.is-open {
+        display: flex; 
+      }
+    }
   }
 }
 

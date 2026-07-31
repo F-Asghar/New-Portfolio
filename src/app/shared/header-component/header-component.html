@@ -5,7 +5,7 @@
         <img src="assets/img/logo.png" alt="Logo" />
       </div>
 
-      <div id="language">
+      <div id="language" [class.is-open]="isMenuOpen">
         <button (click)="useLanguage('de')" [class.active]="currentLanguage === 'de'">DE</button>
         <button (click)="useLanguage('en')" [class.active]="currentLanguage === 'en'">EN</button>
       </div>
