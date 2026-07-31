@@ -1,9 +1,8 @@
 @use '../../../../public/assets/styles/all-styles.scss' as all;
 
-
 #impressum {
   width: 100%;
-  max-width: 1440px; 
+  max-width: 1440px;
   flex-grow: 1;
   margin-bottom: 24px;
 
@@ -17,17 +16,5 @@
 
   a {
     color: var(--accent-color);
-  }
-
-  .arrow-back{
-    width: clamp(24px, 3dvw, 32px);
-    position:absolute;
-    top: 24px;
-    right:clamp(12px, 5%, 48px);
-    filter: var(--accent-icon-filter);
-
-    &:hover{
-      cursor: pointer;
-    }
   }
 }

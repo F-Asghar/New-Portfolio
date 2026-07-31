@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-legal-notice-component',
-  imports: [RouterLink, TranslatePipe],
+  imports: [TranslatePipe],
   templateUrl: './legal-notice-component.html',
   styleUrl: './legal-notice-component.scss',
 })
