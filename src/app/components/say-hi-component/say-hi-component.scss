@@ -25,12 +25,12 @@
   max-width: 1440px;
   @include all.flexi($jc: flex-end, $ai: center);
 
-  img {
-    width: 250px;
-    height: 250px;
-    filter: var(--accent-icon-filter);
-    transition: filter 2s ease-in-out;
-  }
+  // img {
+  //   width: 250px;
+  //   height: 250px;
+  //   filter: var(--accent-icon-filter);
+  //   transition: filter 2s ease-in-out;
+  // }
 }
 
 .padding {
